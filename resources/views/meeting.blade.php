@@ -1,5 +1,5 @@
 Users:
-@foreach ($users as $user)
+@foreach ($data->users as $user)
 	@if(is_string($user))
 		<div>{{ $user }}</div>
 	@else
@@ -7,4 +7,4 @@ Users:
 	@endif
 @endforeach
 
-<p>The next meeting will be about {{ $meetingTitle }}</p>
+<p>The next meeting will be about {{ $data->meetingTitle }}</p>
