@@ -12,10 +12,10 @@ class HomeController extends Controller
     {
         $meetingTitle = $this->getMeetingTitle($request->integer('id'));
 
-        return $meetingTitle;
+        return $meetingTitle ?? '';
     }
 
-    private function getMeetingTitle(int $id): string
+    private function getMeetingTitle(int $id): ?string
     {
         $meetings = $this->getMeetingTitles();
 
