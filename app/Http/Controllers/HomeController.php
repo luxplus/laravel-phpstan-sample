@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index(Request $request): string
     {
-        $meetingTitle = $this->getMeetingTitle($request->id);
+        $meetingTitle = $this->getMeetingTitle($request->integer('id'));
 
         return $meetingTitle;
     }
