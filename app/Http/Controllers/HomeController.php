@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(Request $request): string
+    public function index(Request $request): View
     {
+        $users = ['Lasse']; // Harcoded for now, happy Friday everyone
         $meetingTitle = $this->getMeetingTitle($request->integer('id'));
 
-        return $meetingTitle ?? '';
+        return view('home', compact('users'));
     }
 
     private function getMeetingTitle(int $id): ?string
