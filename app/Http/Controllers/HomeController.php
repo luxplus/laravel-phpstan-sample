@@ -16,6 +16,14 @@ class HomeController extends Controller
         return view('home', compact('users', 'meetingTitle'));
     }
 
+    public function dynamicPage(Request $request): View
+    {
+        $users = User::get();
+        $meetingTitle = $this->getMeetingTitle($request->integer('id'));
+
+        return view('home', compact('users', 'meetingTitle'));
+    }
+
     private function getMeetingTitle(int $id): ?string
     {
         $meetings = $this->getMeetingTitles();
