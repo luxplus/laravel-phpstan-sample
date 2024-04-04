@@ -1,0 +1,25 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/phpstan/phpstan-mockery/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/tomasvotruba/bladestan/config/extension.neon
+services:
+	-
+		class: PHPStan\Rules\Classes\RequireParentConstructCallRule
+		tags:
+			- phpstan.rules.rule
+parameters:
+    level: max
+    tmpDir: storage/framework/cache
+    paths:
+        - ./app
+        - ./artisan
+        - ./bootstrap
+        - ./database
+        - ./public
+        - ./resources
+        - ./tests
+    exceptions:
+        implicitThrows: false
+        check:
+            tooWideThrowType: true
