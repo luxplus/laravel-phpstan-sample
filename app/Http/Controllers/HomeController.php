@@ -13,7 +13,7 @@ class HomeController extends Controller
         $users = ['Lasse']; // Harcoded for now, happy Friday everyone
         $meetingTitle = $this->getMeetingTitle($request->integer('id'));
 
-        return view('home', compact('users'));
+        return view('home', compact('users', 'meetingTitle'));
     }
 
     private function getMeetingTitle(int $id): ?string
