@@ -19,7 +19,7 @@ class HomeController extends Controller
     {
         $meetings = $this->getMeetingTitles();
 
-        return $meetings[$id];
+        return $meetings[$id] ?? null;
     }
 
     /**
